@@ -18,7 +18,6 @@ import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static ru.javawebinar.topjava.UserTestData.*;
 
 @ContextConfiguration({
@@ -64,7 +63,6 @@ public class UserServiceTest {
     public void get() throws Exception {
         User user = service.get(USER_ID);
         USER_MATCHER.assertMatch(user, USER);
-        assertThat(user).isEqualToIgnoringGivenFields(USER, "registered", "roles");
     }
 
     @Test(expected = NotFoundException.class)
